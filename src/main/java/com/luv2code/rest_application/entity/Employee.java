@@ -5,7 +5,6 @@ import lombok.*;
 
 @Entity
 @Table(name="employee")
-@NoArgsConstructor
 @RequiredArgsConstructor
 @Getter
 @Setter
