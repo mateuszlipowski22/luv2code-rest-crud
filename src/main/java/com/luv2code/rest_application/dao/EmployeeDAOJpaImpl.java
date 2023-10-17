@@ -32,5 +32,4 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO{
         return employee;
     }
 
-
 }
