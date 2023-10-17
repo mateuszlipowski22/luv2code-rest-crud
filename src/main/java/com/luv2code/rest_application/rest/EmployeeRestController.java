@@ -3,10 +3,7 @@ package com.luv2code.rest_application.rest;
 import com.luv2code.rest_application.entity.Employee;
 import com.luv2code.rest_application.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -29,5 +26,10 @@ public class EmployeeRestController {
     @GetMapping("/employees/{idEmployee}")
     public Employee getEmployee(@PathVariable int idEmployee){
         return employeeService.findById(idEmployee);
+    }
+
+    @PostMapping("/employees")
+    public Employee saveEmployee(@RequestBody Employee employee){
+        return employeeService.save(employee);
     }
 }

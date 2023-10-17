@@ -10,4 +10,6 @@ public interface EmployeeService {
 
     Employee findById(int id);
 
+    Employee save(Employee employee);
+
 }
