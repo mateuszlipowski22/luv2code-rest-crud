@@ -27,8 +27,8 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO{
     }
 
     @Override
-    public Employee findById(int id) {
-        Employee employee = entityManager.find(Employee.class, id);
+    public Employee findById(int idEmployee) {
+        Employee employee = entityManager.find(Employee.class, idEmployee);
         return employee;
     }
 
@@ -36,5 +36,11 @@ public class EmployeeDAOJpaImpl implements EmployeeDAO{
     public Employee save(Employee employee) {
         Employee employeeDb = entityManager.merge(employee);
         return employeeDb;
+    }
+
+    @Override
+    public void deleteById(int idEmployee) {
+        Employee employee = entityManager.find(Employee.class, idEmployee);
+        entityManager.remove(employee);
     }
 }

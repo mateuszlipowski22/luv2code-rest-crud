@@ -32,4 +32,9 @@ public class EmployeeRestController {
     public Employee saveEmployee(@RequestBody Employee employee){
         return employeeService.save(employee);
     }
+
+    @DeleteMapping("/employees/{idEmployee}")
+    public void deleteEmployee(@PathVariable int idEmployee){
+        employeeService.deleteById(idEmployee);
+    }
 }
