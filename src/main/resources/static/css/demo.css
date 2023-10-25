@@ -2,3 +2,8 @@
     font-style: italic;
     color: green;
 }
+
+.funnier{
+    font-style: revert;
+    color: red;
+}
