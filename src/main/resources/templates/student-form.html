@@ -5,25 +5,30 @@
 <head>
     <meta charset="UTF-8">
     <title>Student Registration Form</title>
-    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+    <link th:href="@{/css/demo.css}" rel="stylesheet"/>
 </head>
 
 <body>
-    <form th:action="@{/processStudentForm}" th:object="${student}" method="post">
-        First Name : <input type="text" th:field="*{firstName}" placeholder="What is your first name">
-        <br><br>
-        Last Name : <input type="text" th:field="*{lastName}" placeholder="What is your last name">
-        <br><br>
-        Country :
-        <select th:field="*{country}">
-            <option th:value="Brazil">Brazil</option>
-            <option th:value="France">France</option>
-            <option th:value="Germany">Germany</option>
-            <option th:value="Poland">Poland</option>
-        </select>
-        <br><br>
-        <input type="submit" value="Submit"/>
-    </form>
+<form th:action="@{/processStudentForm}" th:object="${student}" method="post">
+    First Name : <input type="text" th:field="*{firstName}" placeholder="What is your first name">
+    <br><br>
+    Last Name : <input type="text" th:field="*{lastName}" placeholder="What is your last name">
+    <br><br>
+    Country :
+    <!--        <select th:field="*{country}">-->
+    <!--            <option th:value="Brazil">Brazil</option>-->
+    <!--            <option th:value="France">France</option>-->
+    <!--            <option th:value="Germany">Germany</option>-->
+    <!--            <option th:value="Poland">Poland</option>-->
+    <!--        </select>-->
+
+    <select th:field="*{country}">
+        <option th:each="tempCountry : ${countries}" th:value="${tempCountry}" th:text="${tempCountry}"/>
+    </select>
+
+    <br><br>
+    <input type="submit" value="Submit"/>
+</form>
 </body>
 
 </html>
