@@ -12,5 +12,6 @@ public class Student {
     String firstName;
     String lastName;
     String country;
+    String favoriteLanguage;
 
 }
