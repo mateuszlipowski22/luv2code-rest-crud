@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Customer confirmation</title>
+    <link th:href="@{/css/demo.css}" rel="stylesheet" />
+</head>
+
+<body>
+<h3>Customer confirmation</h3>
+    The customer is confirmed: <span th:text="${customer.firstName}+' '+${customer.lastName}" class="funny"></span>
+<br><br>
+
+</body>
+</html>
