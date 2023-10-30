@@ -9,9 +9,11 @@
 
 <body>
 <h3>Customer confirmation</h3>
-The customer is confirmed:  <span th:text="${customer.firstName}+' '+${customer.lastName}" class="funny"></span>
+The customer is confirmed :  <span th:text="${customer.firstName}+' '+${customer.lastName}" class="funny"></span>
 <br><br>
 Free passes : <span th:text="${customer.freePasses}" class="funny"></span>
+<br><br>
+Postal code : <span th:text="${customer.postalCode}" class="funny"></span>
 <br><br>
 </body>
 </html>
