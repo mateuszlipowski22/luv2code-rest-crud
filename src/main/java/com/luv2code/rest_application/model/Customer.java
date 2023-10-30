@@ -1,5 +1,6 @@
 package com.luv2code.rest_application.model;
 
+import com.luv2code.rest_application.validator.CourseCode;
 import jakarta.validation.constraints.*;
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -23,4 +24,7 @@ public class Customer {
 
     @Pattern(regexp = "^[a-zA-Z0-9]{5}", message = "only 5 chars / digits")
     private String postalCode;
+
+    @CourseCode
+    private String courseCode;
 }
