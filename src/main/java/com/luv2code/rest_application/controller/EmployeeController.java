@@ -62,4 +62,10 @@ public class EmployeeController {
         model.addAttribute("employee", employeeService.findDTOById(id));
         return "employees/employee-form";
     }
+
+    @GetMapping("/delete")
+    public String deleteEmployee(@RequestParam("employeeId") int id){
+        employeeService.deleteById(id);
+        return "redirect:/employees/list";
+    }
 }
