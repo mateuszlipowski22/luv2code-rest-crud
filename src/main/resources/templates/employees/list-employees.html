@@ -26,6 +26,7 @@
                 <th>First Name</th>
                 <th>Last Name</th>
                 <th>Email</th>
+                <th>Action</th>
             </tr>
         </thead>
         <tbody>
@@ -33,45 +34,15 @@
                 <td th:text="${tempEmployee.firstName}"/>
                 <td th:text="${tempEmployee.lastName}"/>
                 <td th:text="${tempEmployee.email}"/>
+                <td>
+                    <a th:href="@{/employees/showFormForUpdate(employeeId=${tempEmployee.id})}"
+                       class="btn btn-info btn">Update</a>
+                </td>
             </tr>
         </tbody>
     </table>
 </div>
 
-
-<!--<form th:action="@{/customer/processForm}" th:object="${customer}" method="post">-->
-<!--    First Name : <input type="text" th:field="*{firstName}" placeholder="What is your name">-->
-<!--    <br><br>-->
-<!--    Last Name (*) : <input type="text" th:field="*{lastName}" placeholder="What is your last name">-->
-
-<!--    <span th:if="${#fields.hasErrors('lastName')}"-->
-<!--          th:errors="*{lastName}"-->
-<!--          class="error"></span>-->
-<!--    <br><br>-->
-
-<!--    Free passes: <input type="text" th:field="*{freePasses}">-->
-
-<!--    <span th:if="${#fields.hasErrors('freePasses')}"-->
-<!--          th:errors="*{freePasses}"-->
-<!--          class="error"></span>-->
-<!--    <br><br>-->
-
-<!--    Postal code: <input type="text" th:field="*{postalCode}">-->
-
-<!--    <span th:if="${#fields.hasErrors('postalCode')}"-->
-<!--          th:errors="*{postalCode}"-->
-<!--          class="error"></span>-->
-<!--    <br><br>-->
-
-<!--    Course code: <input type="text" th:field="*{courseCode}">-->
-
-<!--    <span th:if="${#fields.hasErrors('courseCode')}"-->
-<!--          th:errors="*{courseCode}"-->
-<!--          class="error"></span>-->
-<!--    <br><br>-->
-
-<!--    <input type="submit" value="Submit"/>-->
-<!--</form>-->
 </body>
 
 </html>

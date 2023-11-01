@@ -1,6 +1,7 @@
 package com.luv2code.rest_application.service;
 
 import com.luv2code.rest_application.entity.Employee;
+import com.luv2code.rest_application.model.EmployeeDTO;
 
 import java.util.List;
 
@@ -14,4 +15,9 @@ public interface EmployeeService {
 
     void deleteById(int idEmployee);
 
+    EmployeeDTO findDTOById(int id);
+
+    List<EmployeeDTO> findAllDTO();
+
+    EmployeeDTO convertToDto(Employee employee);
 }
