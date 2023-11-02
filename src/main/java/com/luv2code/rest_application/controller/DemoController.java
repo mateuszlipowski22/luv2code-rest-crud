@@ -15,4 +15,8 @@ public class DemoController {
         return "helloworld";
     }
 
+    @GetMapping("/")
+    public String showHome(){
+        return "home";
+    }
 }
