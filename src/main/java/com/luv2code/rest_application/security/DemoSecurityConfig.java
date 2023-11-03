@@ -62,6 +62,11 @@ public class DemoSecurityConfig {
                                         .fullyAuthenticated()
                 );
 
+        httpSecurity.authorizeHttpRequests(configurer -> configurer.anyRequest().authenticated())
+                .formLogin(form -> form.loginPage("/showMyLoginPage")
+                        .loginProcessingUrl("/authenticateTheUser")
+                        .permitAll());
+
         return httpSecurity.build();
     }
 
