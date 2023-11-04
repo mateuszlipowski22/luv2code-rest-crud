@@ -46,6 +46,9 @@ public class DemoSecurityConfig {
                         .requestMatchers(HttpMethod.PUT, "/api/employees").hasRole("MANAGER")
                         .requestMatchers(HttpMethod.DELETE, "/api/employees/**").hasRole("ADMIN")
                         .requestMatchers("/resources/**").permitAll()
+                        .requestMatchers("/").hasRole("EMPLOYEE")
+                        .requestMatchers("/leaders/**").hasRole("MANAGER")
+                        .requestMatchers("/systems/**").hasRole("ADMIN")
         );
 
         httpSecurity.httpBasic(Customizer.withDefaults());
