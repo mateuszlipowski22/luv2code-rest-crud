@@ -19,13 +19,21 @@ public class RestApplication {
 	public CommandLineRunner commandLineRunner(AppDAO appDAO){
 		return runner ->{
 //			createInstructor(appDAO);
-			findInstructor(appDAO);
+//			findInstructor(appDAO);
+			removeInstructor(appDAO);
 		};
+	}
+
+	private void removeInstructor(AppDAO appDAO) {
+		int id = 1;
+		System.out.println("Removing instructor of : "+id);
+		appDAO.deleteInstructorById(id);
+		System.out.println("Done");
 	}
 
 	private void findInstructor(AppDAO appDAO) {
 		int id = 2;
-		System.out.println("Finding instructor if : "+id);
+		System.out.println("Finding instructor of : "+id);
 		Instructor instructor = appDAO.findInstructorById(id);
 		System.out.println("instructor : "+instructor);
 		System.out.println("Associated instructor details : "+instructor.getInstructorDetail());
