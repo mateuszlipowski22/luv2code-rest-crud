@@ -1,6 +1,7 @@
 package com.luv2code.rest_application.dao;
 
 import com.luv2code.rest_application.entity.Instructor;
+import com.luv2code.rest_application.entity.InstructorDetail;
 import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
@@ -32,5 +33,10 @@ public class AppDAOImpl implements AppDAO{
     public void deleteInstructorById(int id) {
         Instructor instructorToDelete =  entityManager.find(Instructor.class, id);
         entityManager.remove(instructorToDelete);
+    }
+
+    @Override
+    public InstructorDetail findInstructorDetailsById(int id) {
+        return entityManager.find(InstructorDetail.class, id);
     }
 }
