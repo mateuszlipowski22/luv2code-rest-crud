@@ -21,12 +21,19 @@ public class RestApplication {
 //			createInstructor(appDAO);
 //			findInstructor(appDAO);
 //			removeInstructor(appDAO);
-            findInstructorDetails(appDAO);
-
+//          findInstructorDetails(appDAO);
+			removeInstructorDetail(appDAO);
         };
     }
 
-	private void findInstructorDetails(AppDAO appDAO) {
+    private void removeInstructorDetail(AppDAO appDAO) {
+        int id = 2;
+        System.out.println("Removing instructor detail of : " + id);
+        appDAO.deleteInstructorDetailById(id);
+        System.out.println("Done");
+    }
+
+    private void findInstructorDetails(AppDAO appDAO) {
 		int id = 2;
 		System.out.println("Finding instructor details of : " + id);
 		InstructorDetail instructorDetail = appDAO.findInstructorDetailsById(id);
