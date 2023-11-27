@@ -1,6 +1,7 @@
 package com.luv2code.rest_application;
 
 import com.luv2code.rest_application.dao.AppDAO;
+import com.luv2code.rest_application.entity.Course;
 import com.luv2code.rest_application.entity.Instructor;
 import com.luv2code.rest_application.entity.InstructorDetail;
 import org.springframework.boot.CommandLineRunner;
@@ -22,8 +23,26 @@ public class RestApplication {
 //			findInstructor(appDAO);
 //			removeInstructor(appDAO);
 //          findInstructorDetails(appDAO);
-			removeInstructorDetail(appDAO);
+//			removeInstructorDetail(appDAO);
+			createInstructorWithCourses(appDAO);
         };
+    }
+
+    private void createInstructorWithCourses(AppDAO appDAO) {
+        Instructor instructor = new Instructor("Marek", "Baranek", "baran@wp.pl");
+        InstructorDetail instructorDetail = new InstructorDetail("www.google.pl", "sport");
+
+        instructor.setInstructorDetail(instructorDetail);
+
+        Course course1 = new Course("Air guitar");
+        Course course2 = new Course("Paintball");
+
+        instructor.add(course1);
+        instructor.add(course2);
+
+        System.out.println("Saving instructor : " + instructor);
+        System.out.println("The courses : " + instructor.getCourses());
+        appDAO.save(instructor);
     }
 
     private void removeInstructorDetail(AppDAO appDAO) {
