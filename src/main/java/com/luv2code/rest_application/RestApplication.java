@@ -109,7 +109,6 @@ public class RestApplication {
         Instructor instructor = new Instructor("Marek", "Kowalski", "mkowal@wp.pl");
         InstructorDetail instructorDetail = new InstructorDetail("www.yahoo.pl", "sport");
 
-
         instructor.setInstructorDetail(instructorDetail);
 
         System.out.println("Saving instructor: " + instructor);
