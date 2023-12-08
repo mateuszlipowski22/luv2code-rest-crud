@@ -29,8 +29,22 @@ public class RestApplication {
 //			createInstructorWithCourses(appDAO);
 //          findInstructorWithCourses(appDAO);
 //          findCoursesForInstructor(appDAO);
-            findInstructorWithCoursesJoinFetch(appDAO);
+//          findInstructorWithCoursesJoinFetch(appDAO);
+            updateInstructor(appDAO);
         };
+    }
+
+    private void updateInstructor(AppDAO appDAO) {
+        int id=1;
+        System.out.println("Finding instructor id : "+id);
+        Instructor instructor = appDAO.findInstructorById(id);
+
+        System.out.println("Updating instructor id : " + id);
+        instructor.setLastName("Zmiana");
+
+        appDAO.update(instructor);
+
+        System.out.println("Done");
     }
 
     private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
