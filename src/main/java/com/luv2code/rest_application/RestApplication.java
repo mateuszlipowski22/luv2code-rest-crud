@@ -23,7 +23,7 @@ public class RestApplication {
         return runner -> {
 //			  createInstructor(appDAO);
 //			  findInstructor(appDAO);
-//			  removeInstructor(appDAO);
+			  removeInstructor(appDAO);
 //            findInstructorDetails(appDAO);
 //			  removeInstructorDetail(appDAO);
 //			  createInstructorWithCourses(appDAO);
@@ -31,7 +31,7 @@ public class RestApplication {
 //            findCoursesForInstructor(appDAO);
 //            findInstructorWithCoursesJoinFetch(appDAO);
 //            updateInstructor(appDAO);
-            updateCourse(appDAO);
+//            updateCourse(appDAO);
         };
     }
 
