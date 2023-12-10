@@ -23,7 +23,7 @@ public class RestApplication {
         return runner -> {
 //			  createInstructor(appDAO);
 //			  findInstructor(appDAO);
-			  removeInstructor(appDAO);
+//			  removeInstructor(appDAO);
 //            findInstructorDetails(appDAO);
 //			  removeInstructorDetail(appDAO);
 //			  createInstructorWithCourses(appDAO);
@@ -32,7 +32,15 @@ public class RestApplication {
 //            findInstructorWithCoursesJoinFetch(appDAO);
 //            updateInstructor(appDAO);
 //            updateCourse(appDAO);
+            deleteCourse(appDAO);
         };
+    }
+
+    private void deleteCourse(AppDAO appDAO) {
+        int id = 10;
+        System.out.println("Removing course of id : " + id);
+        appDAO.deleteCourseById(id);
+        System.out.println("Done");
     }
 
     private void updateCourse(AppDAO appDAO) {
