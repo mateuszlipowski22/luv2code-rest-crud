@@ -36,8 +36,15 @@ public class RestApplication {
 //            deleteCourse(appDAO);
 
 //            createCourseWithReview(appDAO);
-            retrieveCourseWithReview(appDAO);
+//            retrieveCourseWithReview(appDAO);
+            deleteCourseWithReview(appDAO);
         };
+    }
+
+    private void deleteCourseWithReview(AppDAO appDAO) {
+        int id=10;
+        System.out.println("Deleting course id : "+id);
+        appDAO.deleteCourseById(id);
     }
 
     private void retrieveCourseWithReview(AppDAO appDAO) {
