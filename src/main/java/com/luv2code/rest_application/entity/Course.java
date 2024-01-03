@@ -4,12 +4,17 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+import lombok.ToString;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Table(name="course")
 @NoArgsConstructor
 @Getter
 @Setter
+@ToString
 public class Course {
 
     @Id
@@ -25,7 +30,20 @@ public class Course {
     @JoinColumn(name="instructor_id")
     private Instructor instructor;
 
+    @OneToMany(fetch = FetchType.LAZY,
+            cascade = CascadeType.ALL)
+    @JoinColumn(name="course_id")
+    private List<Review> reviews;
+
     public Course(String title) {
         this.title = title;
+    }
+
+    public void addReview(Review review) {
+        if (this.reviews == null) {
+            reviews = new ArrayList<>();
+        }
+
+        reviews.add(review);
     }
 }

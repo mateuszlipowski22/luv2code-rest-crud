@@ -4,6 +4,7 @@ import com.luv2code.rest_application.dao.AppDAO;
 import com.luv2code.rest_application.entity.Course;
 import com.luv2code.rest_application.entity.Instructor;
 import com.luv2code.rest_application.entity.InstructorDetail;
+import com.luv2code.rest_application.entity.Review;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -32,8 +33,25 @@ public class RestApplication {
 //            findInstructorWithCoursesJoinFetch(appDAO);
 //            updateInstructor(appDAO);
 //            updateCourse(appDAO);
-            deleteCourse(appDAO);
+//            deleteCourse(appDAO);
+
+            createCourseWithReview(appDAO);
+
         };
+    }
+
+    private void createCourseWithReview(AppDAO appDAO) {
+        Course course = new Course("Pacman - How to score one million points");
+
+        course.addReview(new Review("Greate course ... loved it!"));
+        course.addReview(new Review("Cool course - job well done!"));
+        course.addReview(new Review("Stupid"));
+
+        System.out.println("Saving the course");
+        System.out.println(course);
+        System.out.println(course.getReviews());
+
+        appDAO.save(course);
     }
 
     private void deleteCourse(AppDAO appDAO) {
