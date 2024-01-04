@@ -3,6 +3,7 @@ package com.luv2code.rest_application.dao;
 import com.luv2code.rest_application.entity.Course;
 import com.luv2code.rest_application.entity.Instructor;
 import com.luv2code.rest_application.entity.InstructorDetail;
+import com.luv2code.rest_application.entity.Student;
 
 import java.util.List;
 
@@ -33,4 +34,8 @@ public interface AppDAO {
     void save(Course course);
 
     Course findCourseAndReviewByCourseId(int id);
+
+    Course findCourseAndStudentsByCourseId(int id);
+
+    Student findStudentAndCoursesByStudentId(int id);
 }

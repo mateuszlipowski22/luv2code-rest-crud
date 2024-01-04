@@ -12,7 +12,6 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @Table(name="student")
-@ToString
 @AllArgsConstructor
 public class Student {
 
@@ -55,5 +54,15 @@ public class Student {
             courses = new ArrayList<>();
         }
         courses.add(course);
+    }
+
+    @Override
+    public String toString() {
+        return "Student{" +
+                "id=" + id +
+                ", firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                ", email='" + email + '\'' +
+                '}';
     }
 }

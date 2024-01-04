@@ -35,8 +35,30 @@ public class RestApplication {
 //            createCourseWithReview(appDAO);
 //            retrieveCourseWithReview(appDAO);
 //            deleteCourseWithReview(appDAO);
-            createCourseAndStudents(appDAO);
+//            createCourseAndStudents(appDAO);
+//            findCourseAndStudents(appDAO);
+            findStudentAndCourses(appDAO);
         };
+    }
+
+    private void findStudentAndCourses(AppDAO appDAO) {
+        int id = 1;
+        System.out.println("Finding student id : " + id);
+        Student student = appDAO.findStudentAndCoursesByStudentId(id);
+        System.out.println("Student : " + student);
+        System.out.println("The associated courses: " + student.getCourses());
+        System.out.println("Done");
+    }
+
+    private void findCourseAndStudents(AppDAO appDAO) {
+
+        int id = 10;
+        System.out.println("Finding course id : " + id);
+        Course course = appDAO.findCourseAndStudentsByCourseId(id);
+        System.out.println("Course : " + course);
+        System.out.println("The associated students: " + course.getStudents());
+        System.out.println("Done");
+
     }
 
     private void createCourseAndStudents(AppDAO appDAO) {
