@@ -37,8 +37,28 @@ public class RestApplication {
 //            deleteCourseWithReview(appDAO);
 //            createCourseAndStudents(appDAO);
 //            findCourseAndStudents(appDAO);
-            findStudentAndCourses(appDAO);
+//            findStudentAndCourses(appDAO);
+            addMoreCoursesForStudent(appDAO);
+
         };
+    }
+
+    private void addMoreCoursesForStudent(AppDAO appDAO) {
+        int id = 2;
+        System.out.println("Finding student id : " + id);
+        Student student = appDAO.findStudentAndCoursesByStudentId(id);
+        System.out.println("Student : " + student);
+        System.out.println("The associated courses: " + student.getCourses());
+
+        student.addCourse(new Course("Rubik's cube - How to speed cube"));
+        student.addCourse(new Course("Atari 2600 - Game development"));
+
+        System.out.println("The associated courses: " + student.getCourses());
+        System.out.println("Updating student");
+
+        appDAO.update(student);
+
+        System.out.println("Saving student");
     }
 
     private void findStudentAndCourses(AppDAO appDAO) {
