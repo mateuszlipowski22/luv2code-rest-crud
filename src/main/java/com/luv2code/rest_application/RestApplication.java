@@ -37,7 +37,7 @@ public class RestApplication {
 
 //            createCourseWithReview(appDAO);
 //            retrieveCourseWithReview(appDAO);
-            deleteCourseWithReview(appDAO);
+//            deleteCourseWithReview(appDAO);
         };
     }
 
