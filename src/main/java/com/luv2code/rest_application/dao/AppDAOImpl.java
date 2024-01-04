@@ -13,7 +13,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Repository
-public class AppDAOImpl implements AppDAO{
+public class AppDAOImpl implements AppDAO {
 
     private EntityManager entityManager;
 
@@ -41,11 +41,11 @@ public class AppDAOImpl implements AppDAO{
     @Override
     @Transactional
     public void deleteInstructorById(int id) {
-        Instructor instructorToDelete =  entityManager.find(Instructor.class, id);
+        Instructor instructorToDelete = entityManager.find(Instructor.class, id);
 
         List<Course> courses = instructorToDelete.getCourses();
 
-        for(Course course : courses){
+        for (Course course : courses) {
             course.setInstructor(null);
         }
 
@@ -55,7 +55,7 @@ public class AppDAOImpl implements AppDAO{
     @Override
     @Transactional
     public void deleteCourseById(int id) {
-        Course courseToDelete =  entityManager.find(Course.class, id);
+        Course courseToDelete = entityManager.find(Course.class, id);
 
         entityManager.remove(courseToDelete);
     }
@@ -68,7 +68,7 @@ public class AppDAOImpl implements AppDAO{
     @Override
     @Transactional
     public void deleteInstructorDetailById(int id) {
-        InstructorDetail instructorDetailToDelete =  entityManager.find(InstructorDetail.class, id);
+        InstructorDetail instructorDetailToDelete = entityManager.find(InstructorDetail.class, id);
         entityManager.remove(instructorDetailToDelete);
     }
 
@@ -139,5 +139,12 @@ public class AppDAOImpl implements AppDAO{
     @Transactional
     public void update(Student student) {
         entityManager.merge(student);
+    }
+
+    @Override
+    @Transactional
+    public void deleteStudentById(int id) {
+        Student studentToDelete = entityManager.find(Student.class, id);
+        entityManager.remove(studentToDelete);
     }
 }

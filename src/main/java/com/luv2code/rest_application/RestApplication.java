@@ -38,9 +38,18 @@ public class RestApplication {
 //            createCourseAndStudents(appDAO);
 //            findCourseAndStudents(appDAO);
 //            findStudentAndCourses(appDAO);
-            addMoreCoursesForStudent(appDAO);
+//            addMoreCoursesForStudent(appDAO);
+//            deleteCourse(appDAO);
+            deleteStudent(appDAO);
 
         };
+    }
+
+    private void deleteStudent(AppDAO appDAO) {
+            int id = 1;
+            System.out.println("Removing student of id : " + id);
+            appDAO.deleteStudentById(id);
+            System.out.println("Done");
     }
 
     private void addMoreCoursesForStudent(AppDAO appDAO) {
