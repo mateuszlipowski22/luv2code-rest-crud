@@ -1,10 +1,7 @@
 package com.luv2code.rest_application;
 
 import com.luv2code.rest_application.dao.AppDAO;
-import com.luv2code.rest_application.entity.Course;
-import com.luv2code.rest_application.entity.Instructor;
-import com.luv2code.rest_application.entity.InstructorDetail;
-import com.luv2code.rest_application.entity.Review;
+import com.luv2code.rest_application.entity.*;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,22 +35,41 @@ public class RestApplication {
 //            createCourseWithReview(appDAO);
 //            retrieveCourseWithReview(appDAO);
 //            deleteCourseWithReview(appDAO);
+            createCourseAndStudents(appDAO);
         };
     }
 
+    private void createCourseAndStudents(AppDAO appDAO) {
+        Course course = new Course("Pacman - How to score one million points");
+
+        Student student1 = new Student("John", "Doe", "johnDoue@gmail.com");
+        Student student2 = new Student("Mary", "Doe", "maryDou@gmail.com");
+
+        course.addStudent(student1);
+        course.addStudent(student2);
+
+        System.out.println("Saving the course : " + course);
+        System.out.println("Assosiated students : " + course.getStudents());
+
+        appDAO.save(course);
+
+        System.out.println("Done");
+
+    }
+
     private void deleteCourseWithReview(AppDAO appDAO) {
-        int id=10;
-        System.out.println("Deleting course id : "+id);
+        int id = 10;
+        System.out.println("Deleting course id : " + id);
         appDAO.deleteCourseById(id);
     }
 
     private void retrieveCourseWithReview(AppDAO appDAO) {
-        int id=10;
-        System.out.println("Finding course id : "+id);
+        int id = 10;
+        System.out.println("Finding course id : " + id);
         Course course = appDAO.findCourseAndReviewByCourseId(id);
-        System.out.println("course : "+course);
-        System.out.println("Finding courses for course id: "+id);
-        System.out.println("the associated reviews: "+course.getReviews());
+        System.out.println("course : " + course);
+        System.out.println("Finding courses for course id: " + id);
+        System.out.println("the associated reviews: " + course.getReviews());
         System.out.println("Done");
     }
 
@@ -79,8 +95,8 @@ public class RestApplication {
     }
 
     private void updateCourse(AppDAO appDAO) {
-        int id=10;
-        System.out.println("Finding course id : "+id);
+        int id = 10;
+        System.out.println("Finding course id : " + id);
         Course course = appDAO.findCourseById(id);
 
         System.out.println("Updating course id : " + id);
@@ -92,8 +108,8 @@ public class RestApplication {
     }
 
     private void updateInstructor(AppDAO appDAO) {
-        int id=1;
-        System.out.println("Finding instructor id : "+id);
+        int id = 1;
+        System.out.println("Finding instructor id : " + id);
         Instructor instructor = appDAO.findInstructorById(id);
 
         System.out.println("Updating instructor id : " + id);
@@ -105,31 +121,31 @@ public class RestApplication {
     }
 
     private void findInstructorWithCoursesJoinFetch(AppDAO appDAO) {
-        int id=1;
-        System.out.println("Finding instructor id : "+id);
+        int id = 1;
+        System.out.println("Finding instructor id : " + id);
         Instructor instructor = appDAO.findInstructorByJoinFetch(id);
-        System.out.println("instructor : "+instructor);
-        System.out.println("the associated courses: "+instructor.getCourses());
+        System.out.println("instructor : " + instructor);
+        System.out.println("the associated courses: " + instructor.getCourses());
         System.out.println("Done");
     }
 
     private void findCoursesForInstructor(AppDAO appDAO) {
-        int id=1;
-        System.out.println("Finding instructor id : "+id);
+        int id = 1;
+        System.out.println("Finding instructor id : " + id);
         Instructor instructor = appDAO.findInstructorById(id);
-        System.out.println("instructor : "+instructor);
-        System.out.println("Finding courses for instructor id: "+id);
+        System.out.println("instructor : " + instructor);
+        System.out.println("Finding courses for instructor id: " + id);
         List<Course> courses = appDAO.findCourseByInstructor(id);
         instructor.setCourses(courses);
-        System.out.println("the associated courses: "+instructor.getCourses());
+        System.out.println("the associated courses: " + instructor.getCourses());
         System.out.println("Done");
     }
 
     private void findInstructorWithCourses(AppDAO appDAO) {
-        int id=1;
-        System.out.println("Finding instructor id : "+id);
+        int id = 1;
+        System.out.println("Finding instructor id : " + id);
         Instructor instructor = appDAO.findInstructorById(id);
-        System.out.println("instructor : "+instructor);
+        System.out.println("instructor : " + instructor);
         System.out.println("The courses : " + instructor.getCourses());
 
         System.out.println("Done ");
@@ -160,15 +176,15 @@ public class RestApplication {
     }
 
     private void findInstructorDetails(AppDAO appDAO) {
-		int id = 2;
-		System.out.println("Finding instructor details of : " + id);
-		InstructorDetail instructorDetail = appDAO.findInstructorDetailsById(id);
-		System.out.println("instructorDetail : " + instructorDetail);
-		System.out.println("Associated instructor : " + instructorDetail.getInstructor());
+        int id = 2;
+        System.out.println("Finding instructor details of : " + id);
+        InstructorDetail instructorDetail = appDAO.findInstructorDetailsById(id);
+        System.out.println("instructorDetail : " + instructorDetail);
+        System.out.println("Associated instructor : " + instructorDetail.getInstructor());
         System.out.println("Done");
-	}
+    }
 
-	private void removeInstructor(AppDAO appDAO) {
+    private void removeInstructor(AppDAO appDAO) {
         int id = 1;
         System.out.println("Removing instructor of : " + id);
         appDAO.deleteInstructorById(id);
