@@ -40,7 +40,7 @@ public class RestApplication {
 //            findStudentAndCourses(appDAO);
 //            addMoreCoursesForStudent(appDAO);
 //            deleteCourse(appDAO);
-            deleteStudent(appDAO);
+//            deleteStudent(appDAO);
 
         };
     }
